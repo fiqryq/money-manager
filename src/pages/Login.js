@@ -13,6 +13,7 @@ export default function Login() {
     signInWithPopup(auth, provider)
       .then((response) => {
         localStorage.setItem("token", response.user.uid);
+        localStorage.setItem("profile", JSON.stringify(response.user));
         navigate("/dashboard");
       })
       .catch((err) => {
@@ -23,7 +24,7 @@ export default function Login() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) navigate("/dashboard");
-  }, []);
+  });
 
   return (
     <div className="bg-slate-100 h-screen">
