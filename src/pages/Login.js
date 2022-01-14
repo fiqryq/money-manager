@@ -17,7 +17,7 @@ export default function Login() {
         navigate("/dashboard");
       })
       .catch((err) => {
-        // console.log(err);
+        console.log(err);
       });
   };
 
@@ -31,8 +31,8 @@ export default function Login() {
       <div className="container mx-auto p-6">
         <section>
           <div className="flex space-x-5 font-lg cursor-pointer text-md">
-            <a>Home</a>
-            <a>About</a>
+            <p>Home</p>
+            <p>About</p>
           </div>
         </section>
         <section>
