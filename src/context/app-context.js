@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 export const AppContext = createContext({});
 
@@ -7,12 +7,8 @@ export function useAppContext() {
 }
 
 export function AppProvider({ children }) {
-  const [user, setUser] = useState({});
-
-  useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("profile"));
-    setUser(data);
-  }, []);
+  const data = JSON.parse(localStorage.getItem("profile"));
+  const [user] = useState(data);
 
   return <AppContext.Provider value={user}>{children}</AppContext.Provider>;
 }

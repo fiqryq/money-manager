@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { AppProvider } from "../../context/app-context";
 import Sidebar from "./Sidebar";
+import { useCallback } from "react/cjs/react.development";
 
 export default function Layout({ children }) {
   const navigate = useNavigate();
 
-  const logout = () => {
+  const logout = useCallback(() => {
     signOut(auth)
       .then(() => {
         localStorage.clear("token");
@@ -18,12 +19,13 @@ export default function Layout({ children }) {
       .catch((error) => {
         console.log(error);
       });
-  };
+  }, [navigate]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) navigate("/");
-  });
+  }, [navigate]);
+
   return (
     <AppProvider>
       <div className="flex">
