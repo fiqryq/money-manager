@@ -33,6 +33,7 @@ export default function Login() {
           <div className="flex space-x-5 font-lg cursor-pointer text-md">
             <p>Home</p>
             <p>About</p>
+            <p>Kotak</p>
           </div>
         </section>
         <section>
