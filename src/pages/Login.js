@@ -1,9 +1,10 @@
-import { auth } from "../firebase/firebase-config";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+
 import LoginButton from "../components/LoginButton";
+import { auth } from "../firebase/firebase-config";
 import hero from "../assets/hero.png";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const navigate = useNavigate();
