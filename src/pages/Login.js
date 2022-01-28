@@ -13,25 +13,27 @@ export default function Login() {
     signInWithPopup(auth, provider)
       .then((response) => {
         localStorage.setItem("token", response.user.uid);
+        localStorage.setItem("profile", JSON.stringify(response.user));
         navigate("/dashboard");
       })
       .catch((err) => {
-        // console.log(err);
+        console.log(err);
       });
   };
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) navigate("/dashboard");
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="bg-slate-100 h-screen">
       <div className="container mx-auto p-6">
         <section>
           <div className="flex space-x-5 font-lg cursor-pointer text-md">
-            <a>Home</a>
-            <a>About</a>
+            <p>Home</p>
+            <p>About</p>
+            <p>Kotak</p>
           </div>
         </section>
         <section>
