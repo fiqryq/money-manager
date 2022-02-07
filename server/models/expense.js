@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const expenseSchema = new mongoose.Schema({
   uid: {
     type: String,
@@ -19,6 +18,5 @@ const expenseSchema = new mongoose.Schema({
   created_at: { type: Date, default: Date.now },
   updated_at: { type: Date, default: Date.now },
 });
-
 const expense = mongoose.model("expense", expenseSchema);
 module.exports = expense;

@@ -6,5 +6,5 @@ main().catch((err) => console.log(err));
 
 async function main() {
   await mongoose.connect(connection);
-  console.log("conntect to databases");
+  console.log("connect to databases");
 }
